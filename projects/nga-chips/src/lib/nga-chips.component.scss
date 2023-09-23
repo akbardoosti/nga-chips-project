@@ -91,4 +91,17 @@
     }
   }
   
-  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-200px);
+    } to {
+      transform: translateY(0);
+    }
+  }
+
+  .slide-down {
+    animation-name: slideDown;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-fill-mode: both;
+  }

@@ -50,15 +50,19 @@ export class NgaChipsComponent {
       // Prevent the default action of the keypress
       // event (submitting the form)
       event.preventDefault();
-      const find = this.value.find(el => el.value == event.target.value);
-      if (!find) {
-        this.currentValue = "";
-        // Get the trimmed value of the input element
-        this.value.push({
-          value: event.target.value,
-          display: event.target.value,
-        });
+      const targetValue = event.target.value;
+      if (targetValue.trim() != '') {
+        const find = this.value.find(el => el.value == targetValue);
+        if (!find) {
+          this.currentValue = "";
+          // Get the trimmed value of the input element
+          this.value.push({
+            value: event.target.value,
+            display: event.target.value,
+          });
+        }
       }
+
     }
   }
 
@@ -81,8 +85,11 @@ export class NgaChipsComponent {
   @HostListener("keydown", ['$event'])
   onKeyDown(event: any) {
     if (event.code == 'Backspace' && this.currentValue.trim() == "") {
-      this.value.pop();
+      const lastItem = this.value.pop();
       this.valueChange.emit(this.value);
+      if (lastItem) {
+        this.currentValue = lastItem?.display;
+      }
     }
   }
 
