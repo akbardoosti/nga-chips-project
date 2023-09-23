@@ -1,0 +1,34 @@
+<div class="tags-input">
+    <ul #tagsContainer>
+      <li *ngFor="let item of value"
+        class="animate__animated animate__bounceInDown"
+      >
+        {{item.display}}
+        <button
+          class="delete-button"
+          (click)="deleteTag(item.value)"
+        >X
+        </button>
+      </li>
+    </ul>
+    <input
+      [style.display]="value.length < limitNumber ?'block':limitNumber == -1?'block':'none'"
+      type="text"
+      #tagInput
+      [placeholder]="value.length>0 ?placeHolder:secondaryPlaceHolder"
+      (input)="input($event)"
+      [(ngModel)]="currentValue"
+    />
+  </div>
+  <ul
+    *ngIf="suggestedChips.length>0"
+    class="suggestion-chip-list"
+  >
+    <li
+      *ngFor="let item of suggestedChips"
+      (click)="selectItem(item.value)"
+    >
+      {{item.display}}
+    </li>
+  </ul>
+  

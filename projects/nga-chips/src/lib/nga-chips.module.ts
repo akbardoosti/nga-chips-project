@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { NgaChipsComponent } from './nga-chips.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -8,6 +10,9 @@ import { NgaChipsComponent } from './nga-chips.component';
     NgaChipsComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule
   ],
   exports: [
     NgaChipsComponent

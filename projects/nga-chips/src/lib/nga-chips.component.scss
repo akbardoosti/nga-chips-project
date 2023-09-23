@@ -1,0 +1,94 @@
+.tags-input {
+    display: inline-block;
+    position: relative;
+    border: var(--border-size) solid #ccc;
+    border-radius: 4px;
+    padding: 2px var(--padding-size);
+    width: calc(100% - 2*var(--padding-size) - 2*var(--border-size));
+    --padding-size: 0.5rem;
+    --border-size: 1px;
+    overflow: hidden;
+  }
+  
+  .tags-input ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  
+  }
+  
+  .tags-input li {
+    display: inline-block;
+    background-color: #f2f2f2;
+    color: #333;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+  
+    &:active,
+    &:focus {
+      background-color: #00acee;
+      color: #fff;
+    }
+  }
+  
+  .tags-input input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    width: calc(100% - 5px);
+    font-family: var(--website-font-family);
+  }
+  
+  .tags-input input[type="text"]:focus {
+    outline: none;
+  }
+  
+  .delete-button {
+    background-color: transparent;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  
+  .suggestion-chip-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    min-width: 200px;
+    width: fit-content;
+    max-width: 250px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding-top: 0.5rem;
+    position: absolute;
+    z-index: 99999;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: scroll;
+  
+    li {
+      padding: 0.5rem;
+      cursor: pointer;
+  
+      &:focus,
+      &:active {
+        background-color: #fdf1e3;
+      }
+    }
+  
+    li.disabled {
+      background-color: #00acee;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+  
+  
